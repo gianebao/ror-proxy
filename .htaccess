@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^(.*[^/])$ http://%{HTTP_HOST}%{REQUEST_URI}/ [R=301,L] 
+
+    RewriteCond $1 !^$
+    RewriteCond $1 !^(index\.php)
+    RewriteRule ^(.*)$ index.php?_p=$1 [QSA,L]
+</IfModule>
+# Options -Indexes
